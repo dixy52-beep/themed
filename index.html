@@ -2,14 +2,54 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>The Meridian</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Meridian | Editor's Picks</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header class="site-header"><div class="logo">The Meridian.</div></header>
-    <main class="container">
-        <!-- Qui aggiungerai manualmente i link ai tuoi 10 articoli -->
-        <a href="articles/genoa-riviera/index.html"><h3>The Italian Riviera's Best-Kept Secret</h3></a>
-    </main>
+    <div class="container">
+        <header class="site-header">
+            <div class="header-top">
+                <span id="current-date"></span>
+                <span>Top Articles of the Year</span>
+            </div>
+            <div class="logo"><a href="index.html">The Meridian.</a></div>
+            <nav class="main-nav">
+                <a href="#">Politics</a>
+                <a href="#">World</a>
+                <a href="#">Business</a>
+                <a href="#">Travel</a>
+                <a href="#">Culture</a>
+            </nav>
+        </header>
+
+        <main>
+            <h2 class="section-title">- Editor's Top Picks -</h2>
+            <div class="article-grid">
+                
+                <!-- Card Articolo 1 -->
+                <a href="articles/genoa-riviera/index.html" class="article-card">
+                    <img src="articles/genoa-riviera/cover.jpg" alt="Genoa">
+                    <span class="card-cat">Travel &middot; Italy</span>
+                    <h3>The Italian Riviera's Best-Kept Secret</h3>
+                    <p>Historic cities are packed and prices are soaring, but a quiet renaissance is happening on the coast...</p>
+                </a>
+
+                <!-- Aggiungi altre card qui per arrivare a 10 -->
+                
+            </div>
+        </main>
+
+        <footer class="site-footer">
+            <div class="footer-logo">The Meridian.</div>
+            <p class="footer-copy">&copy; 2026 The Meridian Publishing Group. All rights reserved.</p>
+        </footer>
+    </div>
+    <script>
+        document.getElementById('current-date').innerText = new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+    </script>
 </body>
 </html>
