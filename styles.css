@@ -16,7 +16,7 @@
 /* --- Background & Layout (Effetto Foglio) --- */
 body {
     /* La slash iniziale assicura che il file venga cercato nella root, funzionando ovunque */
-    background-image: url('/background.jpg'); 
+    background-image: url('themed/background.jpg'); 
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
