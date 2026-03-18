@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Meridian | Article</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <!-- Punta al CSS nella cartella padre -->
+    <link rel="stylesheet" href="../../styles.css"> 
+</head>
+<body>
+    <div class="container">
+        <header class="site-header">
+            <div class="logo"><a href="../../index.html">The Meridian.</a></div>
+        </header>
+
+        <!-- Loader visivo mentre carica -->
+        <div id="loader" style="text-align: center; padding: 50px; font-family: var(--font-sans);">Loading article...</div>
+
+        <main id="article-content" style="display: none;">
+            <header class="article-header">
+                <span class="category" id="art-category"></span>
+                <h1 class="headline" id="art-title"></h1>
+                <p class="dek" id="art-dek"></p>
+                <div class="byline">By <strong id="art-author"></strong> &middot; <span id="art-date"></span></div>
+            </header>
+
+            <figure class="hero">
+                <img id="art-image" src="" alt="">
+                <figcaption id="art-caption"></figcaption>
+            </figure>
+
+            <article class="article-body" id="art-body"></article>
+        </main>
+    </div>
+
+    <script>
+        // Funzione per trasformare un semplice testo simil-markdown in HTML
+        function parseArticle(text) {
+            // Dividi metadati dal corpo (separati da "---")
+            const parts = text.split('\n---\n');
+            const metaRaw = parts[0];
+            const bodyRaw = parts[1];
+
+            // 1. Estrai i Metadati
+            const metaData = {};
+            metaRaw.split('\n').forEach(line => {
+                const sepIndex = line.indexOf(':');
+                if (sepIndex > -1) {
+                    const key = line.substring(0, sepIndex).trim();
+                    const value = line.substring(sepIndex + 1).trim();
+                    metaData[key] = value;
+                }
+            });
+
+            // Popola l'intestazione
+            document.title = metaData.TITLE + " | The Meridian";
+            document.getElementById('art-category').innerHTML = metaData.CATEGORY;
+            document.getElementById('art-title').innerText = metaData.TITLE;
+            document.getElementById('art-dek').innerText = metaData.DEK;
+            document.getElementById('art-author').innerText = metaData.AUTHOR;
+            document.getElementById('art-date').innerText = metaData.DATE;
+            document.getElementById('art-image').src = metaData.IMAGE;
+            document.getElementById('art-caption').innerText = metaData.CAPTION;
+
+            // 2. Estrai e formatta il corpo del testo
+            const paragraphs = bodyRaw.trim().split('\n\n'); // Dividi in paragrafi
+            let htmlBody = '';
+
+            paragraphs.forEach(p => {
+                let text = p.trim();
+                // Regex per Grassetto (**testo**) e Corsivo (*testo*)
+                text = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+                text = text.replace(/\*(.*?)\*/g, '<em>$1</em>');
+                
+                // Crea Header se inizia per ##
+                if (text.startsWith('## ')) {
+                    htmlBody += `<h2>${text.replace('## ', '')}</h2>`;
+                } else {
+                    htmlBody += `<p>${text}</p>`;
+                }
+            });
+
+            document.getElementById('art-body').innerHTML = htmlBody;
+
+            // Mostra l'articolo
+            document.getElementById('loader').style.display = 'none';
+            document.getElementById('article-content').style.display = 'block';
+        }
+
+        // Carica il file txt
+        fetch('article.txt')
+            .then(response => {
+                if(!response.ok) throw new Error("Articolo non trovato");
+                return response.text();
+            })
+            .then(data => parseArticle(data))
+            .catch(error => {
+                document.getElementById('loader').innerText = "Errore nel caricamento dell'articolo.";
+                console.error(error);
+            });
+    </script>
+</body>
+</html>
