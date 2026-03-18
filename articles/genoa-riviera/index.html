@@ -24,7 +24,8 @@
                 <span class="category" id="art-category"></span>
                 <h1 class="headline" id="art-title"></h1>
                 <p class="dek" id="art-dek"></p>
-                <div class="byline">By <strong id="art-author"></strong> &middot; <span id="art-date"></span></div>
+                <!-- Autore fisso -->
+                <div class="byline">By <strong>Davide Brunori</strong> &middot; <span id="art-date"></span></div>
             </header>
 
             <figure class="hero">
@@ -36,15 +37,19 @@
         </main>
     </div>
 
+    <!-- Footer informativo -->
+    <div style="background-color: #000; color: #fff; padding: 50px 20px; margin-top: 80px; text-align: center;">
+        <div class="container" style="max-width: 800px; font-family: var(--font-sans); font-size: 0.8rem; line-height: 1.6; opacity: 0.8;">
+            <p>The Meridian is an independent blog updated irregularly by Davide Brunori. It is not a newspaper as it does not publish regularly in an organized way. All rights reserved.</p>
+        </div>
+    </div>
+
     <script>
-        // Funzione per trasformare un semplice testo simil-markdown in HTML
         function parseArticle(text) {
-            // Dividi metadati dal corpo (separati da "---")
             const parts = text.split('\n---\n');
             const metaRaw = parts[0];
             const bodyRaw = parts[1];
 
-            // 1. Estrai i Metadati
             const metaData = {};
             metaRaw.split('\n').forEach(line => {
                 const sepIndex = line.indexOf(':');
@@ -55,27 +60,24 @@
                 }
             });
 
-            // Popola l'intestazione
+            // Popola l'intestazione (senza più l'autore nel file txt)
             document.title = metaData.TITLE + " | The Meridian";
             document.getElementById('art-category').innerHTML = metaData.CATEGORY;
             document.getElementById('art-title').innerText = metaData.TITLE;
             document.getElementById('art-dek').innerText = metaData.DEK;
-            document.getElementById('art-author').innerText = metaData.AUTHOR;
             document.getElementById('art-date').innerText = metaData.DATE;
             document.getElementById('art-image').src = metaData.IMAGE;
             document.getElementById('art-caption').innerText = metaData.CAPTION;
 
-            // 2. Estrai e formatta il corpo del testo
-            const paragraphs = bodyRaw.trim().split('\n\n'); // Dividi in paragrafi
+            // Formatta il corpo del testo
+            const paragraphs = bodyRaw.trim().split('\n\n');
             let htmlBody = '';
 
             paragraphs.forEach(p => {
                 let text = p.trim();
-                // Regex per Grassetto (**testo**) e Corsivo (*testo*)
                 text = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
                 text = text.replace(/\*(.*?)\*/g, '<em>$1</em>');
                 
-                // Crea Header se inizia per ##
                 if (text.startsWith('## ')) {
                     htmlBody += `<h2>${text.replace('## ', '')}</h2>`;
                 } else {
@@ -84,22 +86,15 @@
             });
 
             document.getElementById('art-body').innerHTML = htmlBody;
-
-            // Mostra l'articolo
             document.getElementById('loader').style.display = 'none';
             document.getElementById('article-content').style.display = 'block';
         }
 
-        // Carica il file txt
         fetch('article.txt')
-            .then(response => {
-                if(!response.ok) throw new Error("Articolo non trovato");
-                return response.text();
-            })
+            .then(response => response.text())
             .then(data => parseArticle(data))
             .catch(error => {
                 document.getElementById('loader').innerText = "Errore nel caricamento dell'articolo.";
-                console.error(error);
             });
     </script>
 </body>
