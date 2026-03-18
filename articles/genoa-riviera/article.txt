@@ -3,7 +3,7 @@ CATEGORY: Travel &middot; Italy
 DEK: Historic cities are packed and prices are soaring, but a quiet renaissance is happening on the coast. Here is why savvy travelers are leaving the Cinque Terre behind.
 AUTHOR: The Travel Desk
 DATE: March 17, 2026
-IMAGE: Narrow_Streets_of_Genoa_(Unsplash).jpg
+IMAGE: cover.jpg
 CAPTION: Genoa's unique geography plunges straight from the mountains into the Mediterranean Sea.
 ---
 If you are planning an Italian getaway for 2026, you’ve probably noticed the same frustrating trend everywhere: **historic cities are packed, prices are soaring, and finding a truly "authentic" spot feels nearly impossible.** But there is a quiet shift happening on the Italian Riviera.
