@@ -3,272 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Italian Riviera's Best-Kept Secret | The Meridian</title>
-    
-    <!-- Google Fonts -->
+    <title>The Meridian | Editor's Picks</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
-
-    <style>
-        /* Style Variables */
-        :root {
-            --bg-color: #fcfcfc;
-            --text-main: #1a1a1a;
-            --text-muted: #555555;
-            --accent: #8b0000; /* Deep elegant red */
-            --border-color: #dddddd;
-            
-            --font-branding: 'Playfair Display', serif;
-            --font-headline: 'Playfair Display', serif;
-            --font-body: 'Lora', serif;
-            --font-sans: 'Inter', sans-serif;
-        }
-
-        /* Basic Reset */
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            font-family: var(--font-body);
-            line-height: 1.7;
-            -webkit-font-smoothing: antialiased;
-        }
-
-        a {
-            color: inherit;
-            text-decoration: none;
-            transition: color 0.2s ease;
-        }
-
-        /* Main Container */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* --- Header: The Meridian --- */
-        .site-header {
-            border-bottom: 3px solid var(--text-main);
-            padding: 20px 0;
-            margin-bottom: 40px;
-            text-align: center;
-        }
-
-        .header-top {
-            display: flex;
-            justify-content: space-between;
-            font-family: var(--font-sans);
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: var(--text-muted);
-            margin-bottom: 20px;
-            border-bottom: 1px solid var(--border-color);
-            padding-bottom: 10px;
-        }
-
-        .logo {
-            font-family: var(--font-branding);
-            font-size: 4.5rem;
-            font-weight: 900;
-            letter-spacing: -1px;
-            line-height: 1;
-            margin: 10px 0 20px;
-        }
-
-        .main-nav {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            font-family: var(--font-sans);
-            font-size: 0.85rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .main-nav a:hover {
-            color: var(--accent);
-        }
-
-        /* --- Article Header --- */
-        .article-header {
-            max-width: 800px;
-            margin: 0 auto 40px;
-            text-align: center;
-        }
-
-        .category {
-            font-family: var(--font-sans);
-            color: var(--accent);
-            text-transform: uppercase;
-            font-size: 0.8rem;
-            font-weight: 600;
-            letter-spacing: 1px;
-            display: block;
-            margin-bottom: 15px;
-        }
-
-        .headline {
-            font-family: var(--font-headline);
-            font-size: 3.2rem;
-            font-weight: 700;
-            line-height: 1.1;
-            margin-bottom: 20px;
-        }
-
-        .dek {
-            font-family: var(--font-sans);
-            font-size: 1.25rem;
-            font-weight: 300;
-            color: var(--text-muted);
-            line-height: 1.5;
-            margin-bottom: 30px;
-        }
-
-        .byline {
-            font-family: var(--font-sans);
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            border-top: 1px solid var(--border-color);
-            border-bottom: 1px solid var(--border-color);
-            padding: 15px 0;
-            display: inline-block;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .byline strong {
-            color: var(--text-main);
-            font-weight: 600;
-        }
-
-        /* --- Hero Image --- */
-        .hero {
-            width: 100%;
-            margin-bottom: 50px;
-        }
-
-        .hero img {
-            width: 100%;
-            height: auto;
-            display: block;
-            object-fit: cover;
-            max-height: 75vh;
-        }
-
-        .hero figcaption {
-            font-family: var(--font-sans);
-            font-size: 0.8rem;
-            color: var(--text-muted);
-            margin-top: 10px;
-            text-align: right;
-            border-bottom: 1px solid var(--border-color);
-            padding-bottom: 10px;
-        }
-
-        /* --- Article Body --- */
-        .article-body {
-            max-width: 680px;
-            margin: 0 auto;
-            font-size: 1.15rem;
-            line-height: 1.8;
-            color: #222;
-        }
-
-        /* Elegant Drop Cap */
-        .article-body > p:first-of-type::first-letter {
-            float: left;
-            font-family: var(--font-headline);
-            font-size: 5.5rem;
-            line-height: 0.8;
-            padding-top: 6px;
-            padding-right: 10px;
-            padding-left: 0;
-            color: var(--text-main);
-            font-weight: 900;
-        }
-
-        .article-body p {
-            margin-bottom: 25px;
-        }
-
-        .article-body strong {
-            font-weight: 600;
-            color: #000;
-        }
-
-        .article-body h2 {
-            font-family: var(--font-headline);
-            font-size: 2rem;
-            font-weight: 700;
-            margin: 50px 0 20px;
-            line-height: 1.2;
-            color: var(--text-main);
-        }
-
-        /* --- Footer --- */
-        .site-footer {
-            border-top: 4px solid var(--text-main);
-            padding: 40px 0;
-            margin-top: 80px;
-            text-align: center;
-            font-family: var(--font-sans);
-        }
-
-        .footer-logo {
-            font-family: var(--font-branding);
-            font-size: 2rem;
-            font-weight: 900;
-            margin-bottom: 10px;
-        }
-
-        .footer-copy {
-            font-size: 0.8rem;
-            color: var(--text-muted);
-        }
-
-        /* --- Responsive Design --- */
-        @media (max-width: 768px) {
-            .logo {
-                font-size: 3.2rem;
-            }
-            .headline {
-                font-size: 2.2rem;
-            }
-            .dek {
-                font-size: 1.1rem;
-            }
-            .main-nav {
-                flex-wrap: wrap;
-                gap: 15px;
-            }
-            .article-body {
-                font-size: 1.05rem;
-            }
-            .article-body > p:first-of-type::first-letter {
-                font-size: 4.5rem;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
     <div class="container">
-        <!-- Header -->
         <header class="site-header">
             <div class="header-top">
-                <span>March 17, 2026</span>
-                <span>Travel & Leisure Edition</span>
+                <span id="current-date"></span>
+                <span>Top Articles of the Year</span>
             </div>
-            <div class="logo">The Meridian.</div>
+            <div class="logo"><a href="index.html">The Meridian.</a></div>
             <nav class="main-nav">
                 <a href="#">Politics</a>
                 <a href="#">World</a>
@@ -279,56 +27,29 @@
         </header>
 
         <main>
-            <!-- Article Header -->
-            <header class="article-header">
-                <span class="category">Travel &middot; Italy</span>
-                <h1 class="headline">The Italian Riviera's Best-Kept Secret: Why Genoa is 2026's Ultimate Destination</h1>
-                <p class="dek">Historic cities are packed and prices are soaring, but a quiet renaissance is happening on the coast. Here is why savvy travelers are leaving the Cinque Terre behind.</p>
-                <div class="byline">
-                    By <strong>The Travel Desk</strong>
-                </div>
-            </header>
+            <h2 class="section-title">- Editor's Top Picks -</h2>
+            <div class="article-grid">
+                
+                <!-- Card Articolo 1 -->
+                <a href="articles/genoa-riviera/index.html" class="article-card">
+                    <img src="articles/genoa-riviera/cover.jpg" alt="Genoa">
+                    <span class="card-cat">Travel &middot; Italy</span>
+                    <h3>The Italian Riviera's Best-Kept Secret</h3>
+                    <p>Historic cities are packed and prices are soaring, but a quiet renaissance is happening on the coast...</p>
+                </a>
 
-            <!-- Hero Image -->
-            <figure class="hero">
-                <img src="https://blogger.googleusercontent.com/img/a/AVvXsEh4QBiKu7Bp7WG5FarUOjtaEXjy4CZRCinAisVtd25FPS3HzGXgRuB9zlvPgelpDEPstQAmT4JKH3lRYoE4-nfrrIvJsw8dUEcEsYeDegBWArBSjnh4NeSgn6uKsiyrm_c-YdG4e-X7pBlU4hsYynfzyjUz3MBVkK_-8yEZPPauTovExitMEPPGHMH7u0Zv" alt="View of the coastal city of Genoa, Italy">
-                <figcaption>Genoa's unique geography plunges straight from the mountains into the Mediterranean Sea.</figcaption>
-            </figure>
-
-            <!-- Article Body -->
-            <article class="article-body">
-                <p>If you are planning an Italian getaway for 2026, you’ve probably noticed the same frustrating trend everywhere: <strong>historic cities are packed, prices are soaring, and finding a truly "authentic" spot feels nearly impossible.</strong> But there is a quiet shift happening on the Italian Riviera.</p>
-
-                <p>While mainstream travelers continue to crowd the narrow, over-photographed streets of the Cinque Terre, a new wave of savvy tourists is quietly discovering Genoa. And the numbers don't lie: in 2025 alone, the city welcomed over 3.5 million visitors, with a massive 15% increase in international tourism.</p>
-
-                <h2>A Gritty Port City Turns Golden</h2>
-
-                <p>Why is everyone suddenly talking about Genoa? The truth is, Genoa is no longer just a "port city"—it’s undergoing a full-blown renaissance. Recognized by <em>The Times</em> as one of the top global destinations to visit this year and selected as one of the prestigious "Luminous Destinations" by Visit Italy, the city is proving that you don't have to choose between rich history and a modern, sustainable lifestyle.</p>
-
-                <p>Here is why Genoa is the smartest choice for your next Italian trip:</p>
-
-                <p><strong>UNESCO Heritage & Authenticity:</strong> Walk through the majestic Rolli Palaces, a spectacular network of 16th-century aristocratic mansions and a UNESCO World Heritage site, without the shoulder-to-shoulder crowds you’ll inevitably find in Florence or Venice.</p>
-
-                <p><strong>The "Genova Outdoor" Experience:</strong> If you love the thrill of the mountains as much as the breeze of the sea, you’re in luck. The city’s unique, dramatic geography allows you to enjoy urban trekking, hidden trails between the sea and the historic hillside forts, and breathtaking panoramic views—all in one afternoon.</p>
-
-                <p><strong>A Growing International Hub:</strong> With a 50% surge in foreign travelers, the city is becoming more accessible, inclusive, and "smart" than ever before. Yet, it fiercely protects its rugged, maritime soul, keeping its authentic charm intact.</p>
-
-                <h2>The Insider Secret</h2>
-
-                <p>As local officials recently announced, the goal for 2026 is clear: to offer a high-quality travel experience that goes beyond the exhaustion of typical "hit-and-run" tourism. Whether it's the upcoming, highly-anticipated UlisseFest or the vibrant local food scene hidden in the <em>caruggi</em> (the narrow, labyrinthine historic alleyways), Genoa is finally getting the global recognition it deserves.</p>
-
-                <p><strong>Are you ready to beat the crowds?</strong></p>
-
-                <p>If you want to experience the true, beating heart of the Italian Riviera—the one that feels like a genuine discovery rather than a crowded theme park—now is the time to pack your bags for Genoa.</p>
-            </article>
+                <!-- Aggiungi altre card qui per arrivare a 10 -->
+                
+            </div>
         </main>
 
-        <!-- Footer -->
         <footer class="site-footer">
             <div class="footer-logo">The Meridian.</div>
             <p class="footer-copy">&copy; 2026 The Meridian Publishing Group. All rights reserved.</p>
         </footer>
     </div>
-
+    <script>
+        document.getElementById('current-date').innerText = new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+    </script>
 </body>
 </html>
